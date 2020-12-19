@@ -1,0 +1,13 @@
+version: '3.1'
+services:
+  licitacao:
+    image: postgres
+    #    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: licitacao
+#    volumes:
+#      - /srv/docker/postgresql:/var/lib/postgresql
+    ports:
+      - 5433:5432
