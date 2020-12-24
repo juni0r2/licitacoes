@@ -1,2 +1,6 @@
-package br.com.licitacoes.empenhos.model.enums;public enum EnumSituacaoAtivoInativo {
+package br.com.licitacoes.empenhos.model.enums;
+
+public enum EnumSituacaoAtivoInativo {
+
+    ATIVO, INATIVO;
 }

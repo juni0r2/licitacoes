@@ -10,7 +10,9 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Column;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @NoArgsConstructor
@@ -24,6 +26,9 @@ public class ItemDTO {
     private String descricao;
     private LocalDateTime dataCricao = LocalDateTime.now();
     private BigDecimal valorUnitario;
+    private Integer quantidadeTotal;
+    private Integer quantidadeEntregue;
+    private Integer quantidadeAEntregar;
 
     public ItemDTO(Item item) {
         this.id = item.getId();
@@ -31,10 +36,12 @@ public class ItemDTO {
         this.descricao = item.getDescricao();
         this.dataCricao = item.getDataCricao();
         this.valorUnitario = item.getValorUnitario();
+        this.quantidadeTotal = item.getQuantidadeTotal();
+        this.quantidadeEntregue = item.getQuantidadeEntregue();
+        this.quantidadeAEntregar = item.getQuantidadeAEntregar();
     }
 
     public static List<ItemDTO> converter(final List<Item> itens) {
         return itens.stream().map(ItemDTO::new).collect(Collectors.toList());
     }
-
 }

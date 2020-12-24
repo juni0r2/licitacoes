@@ -36,7 +36,7 @@ public class EmpenhoDTO {
         this.numeroEmpenho = empenho.getNumeroEmpenho();
         this.dataCriacao = empenho.getDataCriacao();
         this.valor = empenho.getValor();
-        this.itens = empenho.getItensPedido();
+        this.itens = empenho.getItens();
     }
 
     public static List<EmpenhoDTO> converter(List<Empenho> empenhos) {

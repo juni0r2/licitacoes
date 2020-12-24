@@ -1,20 +1,22 @@
 package br.com.licitacoes.empenhos.model.form;
 
+import br.com.licitacoes.empenhos.model.Empenho;
 import br.com.licitacoes.empenhos.model.Item;
 import lombok.Data;
 
-import javax.persistence.Column;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 @Data
 public class ItemForm {
 
+    private Long id;
     private Integer codigoItem;
     private String descricao;
     private BigDecimal valorUnitario;
+    private Integer quantidadeSolicitada;
 
     public Item converter() {
-        return new Item(this.codigoItem, this.descricao, this.valorUnitario);
+        return new Item(this.id, this.codigoItem, this.descricao, this.valorUnitario,
+                this.quantidadeSolicitada);
     }
 }

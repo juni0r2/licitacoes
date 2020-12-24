@@ -1,5 +1,6 @@
 package br.com.licitacoes.empenhos.model;
 
+import br.com.licitacoes.empenhos.model.enums.EnumSituacaoAtivoInativo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -7,6 +8,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -39,9 +42,29 @@ public class Item {
     @Column(name = "IT_VALOR_UNIT")
     private BigDecimal valorUnitario;
 
-    public Item(final Integer codigoItem, final String descricao, final BigDecimal valorUnitario) {
+    @Column(name = "IT_QTD_TOTAL")
+    private Integer quantidadeTotal = 0;
+
+    @Column(name = "IT_QTD_ENTREGUE")
+    private Integer quantidadeEntregue = 0;
+
+    @Column(name = "IT_QTD_ENTREGAR")
+    private Integer quantidadeAEntregar = 0;
+
+    @Column(name = "IT_ATIVO")
+    @Enumerated(EnumType.STRING)
+    private EnumSituacaoAtivoInativo situaco = EnumSituacaoAtivoInativo.ATIVO;
+
+    public Item(final Long id,
+                final Integer codigoItem,
+                final String descricao,
+                final BigDecimal valorUnitario,
+                final Integer quantidadeSolicitada) {
+
+        this.id = id;
         this.codigoItem = codigoItem;
         this.descricao = descricao;
         this.valorUnitario = valorUnitario;
+        this.quantidadeTotal = quantidadeSolicitada;
     }
 }

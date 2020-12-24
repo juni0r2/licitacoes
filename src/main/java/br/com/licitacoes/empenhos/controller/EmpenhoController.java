@@ -1,13 +1,8 @@
 package br.com.licitacoes.empenhos.controller;
 
-import br.com.licitacoes.empenhos.model.Cliente;
 import br.com.licitacoes.empenhos.model.Empenho;
-import br.com.licitacoes.empenhos.model.dto.ClienteDTO;
 import br.com.licitacoes.empenhos.model.dto.EmpenhoDTO;
-import br.com.licitacoes.empenhos.model.form.ClienteForm;
 import br.com.licitacoes.empenhos.model.form.EmpenhoForm;
-import br.com.licitacoes.empenhos.repository.ClienteRepository;
-import br.com.licitacoes.empenhos.repository.EmpenhoRepository;
 import br.com.licitacoes.empenhos.service.EmpenhoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
