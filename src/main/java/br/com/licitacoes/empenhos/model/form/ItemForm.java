@@ -13,7 +13,7 @@ public class ItemForm {
     private Integer codigoItem;
     private String descricao;
     private BigDecimal valorUnitario;
-    private Integer quantidadeSolicitada;
+    private Integer quantidadeSolicitada = 0;
 
     public Item converter() {
         return new Item(this.id, this.codigoItem, this.descricao, this.valorUnitario,

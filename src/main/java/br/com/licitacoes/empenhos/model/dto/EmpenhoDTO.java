@@ -23,20 +23,19 @@ import java.util.stream.Collectors;
 public class EmpenhoDTO {
 
     private Long id;
-    private Long idEmpenhoOrigem;
     private String numeroEmpenho;
     private LocalDateTime dataCriacao = LocalDateTime.now();
     private BigDecimal valor;
-    private Cliente cliente;
-    private List<Item> itens;
+    private ClienteDTO cliente;
+    private List<ItemDTO> itens;
 
     public EmpenhoDTO(Empenho empenho) {
         this.id = empenho.getId();
-        this.idEmpenhoOrigem = empenho.getIdEmpenhoOrigem();
         this.numeroEmpenho = empenho.getNumeroEmpenho();
         this.dataCriacao = empenho.getDataCriacao();
         this.valor = empenho.getValor();
-        this.itens = empenho.getItens();
+        this.itens = ItemDTO.converter(empenho.getItens());
+        this.cliente = new ClienteDTO(empenho.getCliente());
     }
 
     public static List<EmpenhoDTO> converter(List<Empenho> empenhos) {

@@ -28,6 +28,10 @@ public class ClienteDTO {
         this.dataCriacao = cliente.getDataCriacao();
     }
 
+    public Cliente converter() {
+        return new Cliente(this.id, this.nome, this.sigla, this.dataCriacao);
+    }
+
     public static List<ClienteDTO> converter(final List<Cliente> clientes) {
         return clientes.stream().map(ClienteDTO::new).collect(Collectors.toList());
     }
